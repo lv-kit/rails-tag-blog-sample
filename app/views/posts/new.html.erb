@@ -1,0 +1,30 @@
+<%= form_for(@post) do |f| %>
+  <div class="field">
+    <%= f.label :title, "タイトル" %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :slug, "スラッグ" %><br>
+    <%= f.text_field :slug %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body, "本文" %><br>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_id, "カテゴリー" %><br>
+    <%= f.collection_select :category_id, Category.all, :id, :name, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tag_list, "タグ" %><br>
+    <%= text_field_tag 'post[tag_list]', @post.tag_list.join(',') %>
+  </div>
+
+  <div class="action">
+    <%= f.submit "作成" %>
+  </div>
+<% end %>

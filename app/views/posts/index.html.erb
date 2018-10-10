@@ -1,0 +1,23 @@
+<% @posts.each do |post| %>
+    <article>
+        <header>
+            <h3>
+                <%= post.title %>
+            </h3>
+        </header>
+        <main>
+            <%= post.body.html_safe %>
+        </main>
+        <footer>
+            <% if post.tags %>
+                <ul>
+                    <% post.tags.each do |tag| %>
+                        <li>
+                            <%= tag %>
+                        </li>
+                        <% end %>
+                </ul>
+                <% end %>
+        </footer>
+    </article>
+    <% end %>

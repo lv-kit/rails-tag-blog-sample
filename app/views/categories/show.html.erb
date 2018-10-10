@@ -1,0 +1,17 @@
+<div class="category">
+  <h2><%= @category.name %></h2>
+  <h2><%= @category.id %></h2>
+  <div class="description">
+    <p><%= @category.description %></p>
+  </div>
+</div>
+
+<main>
+  <% @posts.each do |post| %>
+  <article>
+    <header>
+      <h3><%= link_to post.title, post_path(post.slug) %></h3>
+    </header>
+  </article>
+  <% end %>
+</main>
